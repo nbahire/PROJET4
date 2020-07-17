@@ -1,0 +1,2 @@
+<p>page d'acceuil du site</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam iure libero hic, voluptatibus accusantium consequatur consequuntur veritatis ipsam nam inventore deserunt quam, quia voluptate mollitia natus. Eaque reprehenderit voluptates quis.</p>
