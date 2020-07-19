@@ -7,9 +7,19 @@ class UsersModel extends Model
     protected $id;
     protected $email;
     protected $password;
+    protected $roles;
 
-
-
+    public function findByEmail(string $email)
+    {
+    return $this->requete("SELECT * FROM {$this->table} WHERE email = ?", [$email])->fetch();
+    }
+    public function setSession()
+    {
+        $_SESSION['user'] = [
+            'id'=>$this->id,
+            'email'=> $this->email
+        ];
+    }
     /**
      * Get the value of id
      */
@@ -66,6 +76,29 @@ class UsersModel extends Model
     public function setPassword($password)
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of roles
+     */ 
+    public function getRoles()
+    {
+        $roles= $this->roles;
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    /**
+     * Set the value of roles
+     *
+     * @return  self
+     */ 
+    public function setRoles($roles)
+    {
+        $this->roles = json_decode($roles);
 
         return $this;
     }

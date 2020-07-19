@@ -35,6 +35,7 @@ class PostsController extends Controller
         $postsModel = new PostsModel;
         $commentsModel = new CommentsModel;
         //On va chercher 1 billet de blog
+        
         $post = $postsModel->find($id);
         //On associe le commentaire a son billet de blog correspodant
         $comments = $commentsModel->findBy(['post_id' => $id]);

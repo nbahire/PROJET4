@@ -38,14 +38,14 @@ class Main extends Controller
             $action = isset($params[0]) ? array_shift($params) : 'index';
 
 
-
             if (method_exists($controller, $action)) {
                 // Si il reste des paramètres, on appelle la méthode en envoyant les paramètres sinon on l'appelle "à vide"
                 (isset($params[0])) ? call_user_func_array([$controller, $action], $params) : $controller->$action();
+
             } else {
                 // On envoie le code réponse 404
                 http_response_code(404);
-                $this->render('main/index', [], 'home');
+                echo"La page que vous essayez de visiter n'existe pas ";
             }
         } else {
             // Ici aucun paramètre n'est défini
