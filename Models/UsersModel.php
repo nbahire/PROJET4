@@ -19,6 +19,14 @@ class UsersModel extends Model
     {
         return $this->requete("SELECT * FROM {$this->table} WHERE email = ?", [$email])->fetch();
     }
+    public function setSession()
+    {
+        $_SESSION['user'] = [
+            'id' => $this->id,
+            'email' => $this->email
+        ];
+    }
+
  
     /**
      * Get the value of id
