@@ -9,17 +9,17 @@ class UsersModel extends Model
     protected $password;
     protected $roles;
 
+    public function __construct()
+    {
+
+        $this->table = 'users';
+    }
+
     public function findByEmail(string $email)
     {
-    return $this->requete("SELECT * FROM {$this->table} WHERE email = ?", [$email])->fetch();
+        return $this->requete("SELECT * FROM {$this->table} WHERE email = ?", [$email])->fetch();
     }
-    public function setSession()
-    {
-        $_SESSION['user'] = [
-            'id'=>$this->id,
-            'email'=> $this->email
-        ];
-    }
+ 
     /**
      * Get the value of id
      */
@@ -82,10 +82,10 @@ class UsersModel extends Model
 
     /**
      * Get the value of roles
-     */ 
+     */
     public function getRoles()
     {
-        $roles= $this->roles;
+        $roles = $this->roles;
         $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
@@ -95,7 +95,7 @@ class UsersModel extends Model
      * Set the value of roles
      *
      * @return  self
-     */ 
+     */
     public function setRoles($roles)
     {
         $this->roles = json_decode($roles);

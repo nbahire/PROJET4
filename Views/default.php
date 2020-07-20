@@ -26,8 +26,9 @@
                 </li>
             </ul>
         </div>
-        <a href="/PROJET4/public/users/login"><button type="button" class="btn btn-link">se connecter</button></a>
-    </nav>
+        <a href="users/login"><button type="button" class="btn btn-link">se connecter</button></a>
+        <a href="users/register"><button type="button" class="btn btn-link">s'inscrire</button></a>
+</nav>
     <div class="container">
         <?= $content ?>
     </div>

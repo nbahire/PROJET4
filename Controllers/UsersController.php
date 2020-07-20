@@ -6,21 +6,27 @@ use Nbahire\Models\UsersModel;
 
 class UsersController extends Controller
 {
-    public function login()
+    public function index()
     {
-            
-            $UsersModel = new UsersModel;
-            //On va chercher 1 billet de blog
+        # code...
+    }
 
-            if (!empty($_POST['email']) && !empty($_POST['password'])) {
+    public function register()
+    {
+        // On vérifie si notre post contient les champs email et password
+        if (!empty($_POST['email']) && !empty($_POST['password'])) {
+            // On nettoie l'e-mail et on chiffre le mot de passe
+            $email = strip_tags($_POST['email']);
+            $pass = password_hash($_POST['password'], PASSWORD_ARGON2I);
+            $userModel = new UsersModel;
+            $addUser = $userModel->setEmail($email)
+                ->setPassword($pass);
+            $userModel->create($addUser);
+            $this->render('users/register', compact('addUser'));
+            header('location: ');
 
-                $user = $UsersModel->getId()
-                    ->setAuthor($_POST['author'])
-                    ->setComment($_POST['comment']);
-                $commentsModel->create($addComment);
-                //On envoie a la vue 
-                header('Location:' . $id . '');
-                $this->render('posts/lire', compact('post', "comments", 'addComment'));
-            }
+        }
+        $this->render('users/register');
+ 
     }
 }
