@@ -2,7 +2,7 @@
 
 namespace Nbahire\Controllers;
 
-use Nbahire\Models\CommentsModel;
+use Nbahire\Models\PostsModel;
 
 class AdminController extends Controller
 {
@@ -35,6 +35,16 @@ class AdminController extends Controller
     }
     public function addChapiter()
     {
+        $postModel = new PostsModel;
+        if (!empty($_POST['titre']) && !empty($_POST['description'])) {
+
+            $addChapiter = $postModel->setTitre($_POST['titre'])
+                                    ->setDescription($_POST['description']);
+            $postModel->create($addChapiter);
+            //On envoie a la vue 
+            $this->render('admin/addChapiter', compact('addChapiter'));
+            header('location: /PROJET4/public/admin');
+        }
         $this->render('admin/addChapiter',[],'admin');
     }
     /**
