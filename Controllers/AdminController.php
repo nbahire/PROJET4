@@ -2,6 +2,8 @@
 
 namespace Nbahire\Controllers;
 
+use Nbahire\Models\CommentsModel;
+
 class AdminController extends Controller
 {
     public function index()
@@ -34,5 +36,16 @@ class AdminController extends Controller
     public function addChapiter()
     {
         $this->render('admin/addChapiter',[],'admin');
+    }
+    /**
+     * Affiche les commentaires signalés
+     *
+     * @param [type] $id
+     * @return void
+     */
+    public function moderate()
+    {
+        
+   
     }
 }

@@ -3,6 +3,7 @@
 use Nbahire\Autoloader;
 use Nbahire\Core\Main;
 // On définit une constante contenant le dossier racine
+$_SESSION['erreur']= null;
 define('ROOT', dirname(__DIR__));
 
 // On importe l'Autoloader

@@ -9,6 +9,7 @@ class CommentsModel extends Model
     protected $author;
     protected $comment;
     protected $comment_date;
+    protected $moderate;
 
     public function __construct()
     {
@@ -112,6 +113,26 @@ class CommentsModel extends Model
     public function setComment_date($comment_date)
     {
         $this->comment_date = $comment_date;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of moderate
+     */ 
+    public function getModerate()
+    {
+        return $this->moderate;
+    }
+
+    /**
+     * Set the value of moderate
+     *
+     * @return  self
+     */ 
+    public function setModerate($moderate)
+    {
+        $this->moderate = $moderate;
 
         return $this;
     }

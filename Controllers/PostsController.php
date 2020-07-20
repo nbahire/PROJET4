@@ -29,7 +29,7 @@ class PostsController extends Controller
      * @return void
      */
 
-    public function lire(int $id)
+    public function lire(int $id )
     {
         //On instancie le modéle
         $postsModel = new PostsModel;
@@ -50,5 +50,9 @@ class PostsController extends Controller
             $this->render('posts/lire', compact('post', "comments", 'addComment'));
         }
         $this->render('posts/lire', compact('post', "comments"));
+
+        $moderate= $commentsModel->find($id);
+        $this->render('admin/moderate', compact('moderate'));
+
     }
 }

@@ -6,7 +6,7 @@
 
     <h4 class="intro">Ajoutez un commentaire :</h4>
 
-    <form method="post" action="<?php $addComment?>">
+    <form method="post" action="<?php $addComment ?>">
 
         <label>Nom / Pseudo : </label></br>
         <input type="text" name="author" size="30" max="256" required>
@@ -25,7 +25,7 @@
         <div>le <?= $comment->comment_date ?></div>
         <div><?= $comment->comment ?></div>
         <div class="text-left">
-            <a href="#" class="btn btn-primary btn-sm btn-outline-danger">signaler</a>
+            <a href="#" method="post" action="<?php $addComment ?>" class="btn btn-primary btn-sm btn-outline-danger">signaler</a>
         </div>
     </article>
 <?php endforeach; ?>

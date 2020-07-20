@@ -32,6 +32,7 @@ class UsersController extends Controller
     public function login()
     {
         // On vérifie si notre post contient les champs email et password
+        
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
             // On nettoie l'e-mail et on chiffre le mot de passe
             $userModel = new UsersModel;
@@ -49,10 +50,8 @@ class UsersController extends Controller
                 
             }
             $this->render('users/login', compact('user'));
-
-          
+  
         }
-        $_SESSION['erreur'] = "Veuillez indiquer votre email et votre mot de passe !";
         $this->render('users/login');
     }
     /**
