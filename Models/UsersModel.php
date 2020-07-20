@@ -19,15 +19,21 @@ class UsersModel extends Model
     {
         return $this->requete("SELECT * FROM {$this->table} WHERE email = ?", [$email])->fetch();
     }
+    /**
+     * Crée la session de l'utilisateur
+     *
+     * @return void
+     */
     public function setSession()
     {
         $_SESSION['user'] = [
             'id' => $this->id,
-            'email' => $this->email
+            'email' => $this->email,
+            'roles' => $this->roles
         ];
     }
 
- 
+
     /**
      * Get the value of id
      */

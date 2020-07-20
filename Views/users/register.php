@@ -1,4 +1,5 @@
 <form method="post" action="<?php $addUser ?>">
+    <h3>S'inscrire</h3>
     <div class="form-group">
         <label for="exampleInputEmail1">Email</label>
         <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrer votre e-mail">

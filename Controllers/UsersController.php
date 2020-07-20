@@ -38,17 +38,31 @@ class UsersController extends Controller
             $userArray = $userModel->findByEmail(strip_tags($_POST['email']));           
             if (!$userArray) {
                 http_response_code(404);
-                header('Location: /');
+                $_SESSION['erreur'] = "Vous n'etes pas encore inscrit!!";
+                header('Location: login');
                 exit;
             }
             $user = $userModel->hydrate($userArray);
             
             if (password_verify($_POST['password'], $user->getPassword())) {
                 $user->setSession(); 
+                
             }
             $this->render('users/login', compact('user'));
+
           
         }
+        $_SESSION['erreur'] = "Veuillez indiquer votre email et votre mot de passe !";
         $this->render('users/login');
+    }
+    /**
+     * Déconnexion de l'utilisateur
+     * @return exit 
+     */
+    public function logout()
+    {
+        unset($_SESSION['user']);
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit;
     }
 }

@@ -1,8 +1,8 @@
-<form method="post" action="<?php $addUser ?>">
+<form method="post" action="<?php $user ?>">
+    <h3>Se connecter</h3>
     <div class="form-group">
         <label for="exampleInputEmail1">Email</label>
         <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrer votre e-mail">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1">Mot de passe</label>
