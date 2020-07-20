@@ -31,4 +31,8 @@ class AdminController extends Controller
             exit;
         }
     }
+    public function addChapiter()
+    {
+        $this->render('admin/addChapiter',[],'admin');
+    }
 }
