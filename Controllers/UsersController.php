@@ -50,7 +50,9 @@ class UsersController extends Controller
                 
             }
             $this->render('users/login', compact('user'));
-  
+            if (isset($_SESSION['user']['roles']) && in_array('ROLE_ADMIN', $_SESSION['user']['roles'])){
+                header('Location: /PROJET4/public/admin'); 
+            }
         }
         $this->render('users/login');
     }

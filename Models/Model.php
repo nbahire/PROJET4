@@ -82,7 +82,7 @@ class Model extends Db
 
         //On boucle pour éclater le tableau
         foreach ($this as $champ => $valeur) {
-            //UPDATE annonces SET titre= ?, description= ?, actif= ? WHERE id= ?
+            //UPDATE  SET titre= ?, description= ?, WHERE id= ?
             if ($valeur !== null && $champ != 'db' && $champ != 'table') {
                 $champs[] = "$champ= ?";
                 $valeurs[] = $valeur;

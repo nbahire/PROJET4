@@ -29,7 +29,7 @@ class PostsController extends Controller
      * @return void
      */
 
-    public function lire(int $id )
+    public function lire(int $id)
     {
         //On instancie le modéle
         $postsModel = new PostsModel;
@@ -44,15 +44,14 @@ class PostsController extends Controller
             $addComment = $commentsModel->setPost_id($id)
                 ->setAuthor($_POST['author'])
                 ->setComment($_POST['comment']);
-            $commentsModel->create($addComment);
+            $commentsModel->create($addComment);            
             //On envoie a la vue 
             header('Location:' . $id . '');
-            $this->render('posts/lire', compact('post', "comments", 'addComment'));
+            $this->render('posts/lire', compact('addComment'));
         }
+        $moderates=$commentsModel->findBy(['id']);
         $this->render('posts/lire', compact('post', "comments"));
-
-        $moderate= $commentsModel->find($id);
-        $this->render('admin/moderate', compact('moderate'));
+        var_dump(extract($moderates));
 
     }
 }

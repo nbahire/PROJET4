@@ -24,9 +24,10 @@
         <h4>posté par <?= $comment->author ?></h4>
         <div>le <?= $comment->comment_date ?></div>
         <div><?= $comment->comment ?></div>
-        <div class="text-left">
-            <a href="#" method="post" action="<?php $addComment ?>" class="btn btn-primary btn-sm btn-outline-danger">signaler</a>
-        </div>
+        <form method="post" name="moderate" action="<?php $moderates ?>">
+            <input type="submit" value="signaler" />
+        </form>
+
     </article>
 <?php endforeach; ?>
 <?php

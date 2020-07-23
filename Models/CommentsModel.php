@@ -9,7 +9,7 @@ class CommentsModel extends Model
     protected $author;
     protected $comment;
     protected $comment_date;
-    protected $moderate;
+    protected $moderates;
 
     public function __construct()
     {
@@ -120,9 +120,9 @@ class CommentsModel extends Model
     /**
      * Get the value of moderate
      */ 
-    public function getModerate()
+    public function getModerates()
     {
-        return $this->moderate;
+        return $this->moderates;
     }
 
     /**
@@ -130,9 +130,9 @@ class CommentsModel extends Model
      *
      * @return  self
      */ 
-    public function setModerate($moderate)
+    public function setModerates($moderates)
     {
-        $this->moderate = $moderate;
+        $this->moderates = $moderates;
 
         return $this;
     }
