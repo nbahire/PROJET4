@@ -61,8 +61,22 @@ class AdminController extends Controller
             $commentsModel = new CommentsModel;
 
             //On va chercher tous les posts 
-            $moderate = $commentsModel->findAll();
-            $this->render('admin/moderateComment', compact('moderate'),'admin');
+            $moderates = $commentsModel->findBy(['moderates'=> 1]);
+            $this->render('admin/moderateComment', compact('moderates'),'admin');
+        }
+    }
+    /**
+     * supprimer un commentaire si on est admin
+     *
+     * @param int $id
+     * @return void
+     */
+    public function deleteComment($id)
+    {
+        if($this->IsAdmin()){
+            $comment = new CommentsModel;
+            $comment->delete($id);
+            header('location: '.$_SERVER['HTTP_REFERER']);
         }
     }
 }

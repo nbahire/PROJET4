@@ -35,7 +35,7 @@ class PostsController extends Controller
         $postsModel = new PostsModel;
         $commentsModel = new CommentsModel;
         //On va chercher 1 billet de blog
-        
+
         $post = $postsModel->find($id);
         //On associe le commentaire a son billet de blog correspodant
         $comments = $commentsModel->findBy(['post_id' => $id]);
@@ -44,14 +44,12 @@ class PostsController extends Controller
             $addComment = $commentsModel->setPost_id($id)
                 ->setAuthor($_POST['author'])
                 ->setComment($_POST['comment']);
-            $commentsModel->create($addComment);            
+            $commentsModel->create($addComment);
             //On envoie a la vue 
             header('Location:' . $id . '');
-            $this->render('posts/lire', compact('addComment'));
+            $this->render('posts/lire', compact('post', "comments", 'addComment'));
         }
-        $moderates=$commentsModel->findBy(['id']);
-        $this->render('posts/lire', compact('post', "comments"));
-        var_dump(extract($moderates));
 
+        $this->render('posts/lire', compact('post', "comments"));
     }
 }
