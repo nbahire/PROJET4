@@ -1,4 +1,5 @@
 <table class="table table-striped">
+    <h3>Liste des commentaires signalés</h3>
     <thead>
         <th>ID</th>
         <th>Auteur</th>
@@ -13,7 +14,7 @@
                 <td><?= $moderate->author ?></td>
                 <td><?= $moderate->comment ?></td>
                 <td></td>
-                <td><a href="" class="btn btn-warning">Restaurer</a><a href="/PROJET4/public/admin/deleteComment/<?= $moderate->id ?>" class="btn btn-danger">Supprimer</a></td>
+                <td><a href="/PROJET4/public/admin/deleteComment/<?= $moderate->id ?>" class="btn btnSupp btn-danger">Supprimer</a></td>
             </tr>
         <?php endforeach; ?>
     </tbody>

@@ -24,9 +24,7 @@
         <h4>posté par <?= $comment->author ?></h4>
         <div>le <?= $comment->comment_date ?></div>
         <div><?= $comment->comment ?></div>
-        <form method="post" name="moderat" action="<?php  ?>">
-            <input type="submit" value="signaler" />
-        </form>
+        <button class="btn btn-signal btn-primary" type="submit" data-id="<?= $comment->id ?>">signaler</button>
 
     </article>
 <?php endforeach; ?>

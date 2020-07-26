@@ -79,4 +79,20 @@ class AdminController extends Controller
             header('location: '.$_SERVER['HTTP_REFERER']);
         }
     }
+    /**
+     * active le signalement du commentaire en mettant moderate a un
+     *
+     * @param int $id
+     * @return void
+     */
+    public function getComment($id)
+    {
+        $commentsModel = new CommentsModel;
+        $commentaArray = $commentsModel->find($id);
+        if ($commentaArray) {
+           $comment = $commentsModel->hydrate($commentaArray);
+           $comment->setModerates($comment->getModerates()? :1);
+           $comment->update();
+        }
+    }
 }
