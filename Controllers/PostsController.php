@@ -18,7 +18,7 @@ class PostsController extends Controller
         $postsModel = new PostsModel;
 
         //On va chercher tous les posts 
-        $posts = $postsModel->findBy(['id']);
+        $posts = $postsModel->findBy(['array_reverse(id)']);
 
         //On genere la vue 
         $this->render('posts/index', compact("posts"));
