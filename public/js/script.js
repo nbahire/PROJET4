@@ -7,5 +7,5 @@ window.onload = () => {
 }
 
 function activate() {
-    console.log('vive les gros nichons');
+    console.log('vive les gros ');
 }
