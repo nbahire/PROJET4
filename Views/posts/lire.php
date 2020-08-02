@@ -1,30 +1,109 @@
-<article>
-    <h1>><?= $post->titre ?></h1>
-    <div><?= $post->created_at ?></div>
-    <div><?= $post->description ?></div>
-    <a href="#"><button type="button" class="btn btn-link">Commenter</button></a>
+    <?php if (!$post) {
+        header('Location: erreur');
+        exit;
+    }
+    ?>
+    <div class="outer-container">
 
-    <h4 class="intro">Ajoutez un commentaire :</h4>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-header flex justify-content-center align-items-center" style="background-image: url('/PROJET4/public/images/blog-bg.jpg')">
+                        <h1>The Story</h1>
+                    </div><!-- .page-header -->
+                </div><!-- .col -->
+            </div><!-- .row -->
 
-    <form method="post" action="<?php $addComment ?>">
+        </div><!-- .hero-section -->
 
-        <label>Nom / Pseudo : </label></br>
-        <input type="text" name="author" size="30" max="256" required>
-        <br />
-        <label>Commentaire : </label></br>
-        <textarea name="comment" cols="51" rows="5" required></textarea>
-        <br />
-        <input type="submit" value="Envoyez votre message" />
+        <div class="container single-page blog-page">
+            <div class="row">
+                <div class="col-12">
+                    <div class="content-wrap">
+                        <header class="entry-header">
+                            <div class="posted-date">
+                                <?= $post->created_at ?>
+                            </div><!-- .posted-date -->
 
-    </form>
+                            <h2 class="entry-title"><?= $post->titre ?></h2>
 
-</article>
-<?php foreach ($comments as $comment) : ?>
-    <article>
-        <h4>posté par <?= $comment->author ?></h4>
-        <div>le <?= $comment->comment_date ?></div>
-        <div><?= $comment->comment ?></div>
-        <button class="btn btn-signal btn-primary" type="submit" data-id="<?= $comment->id ?>">signaler</button>
+                        </header><!-- .entry-header -->
 
-    </article>
-<?php endforeach; ?>
+                        <figure class="featured-image">
+                            <img src="/PROJET4/public/images/blog-image.jpg" alt="">
+                        </figure><!-- .featured-image -->
+
+                        <div class="entry-content">
+                            <p><?= $post->description ?></p>
+                        </div><!-- .entry-content -->
+
+
+
+                        <footer class="entry-footer flex flex-column flex-lg-row justify-content-between align-content-start align-lg-items-center">
+                            <ul class="post-share flex align-items-center order-3 order-lg-1">
+                                <label>Share</label>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            </ul><!-- .post-share -->
+
+                            <div class="comments-count order-1 order-lg-3">
+                                <a href="#">2 Comments</a>
+                            </div><!-- .comments-count -->
+                        </footer><!-- .entry-footer -->
+                    </div><!-- .content-wrap -->
+                    <div class="comments-form">
+                        <div class="comment-respond">
+                            <h3 class="comment-reply-title">Laisser un commentaire</h3>
+                            <form class="comment-form" method="post" action="<?php $addComment ?>">
+                                <input type="text" placeholder="Nom" name="author" required>
+                                <textarea rows="18" cols="6" placeholder="Commentaire" name="comment" required></textarea>
+                                <input type="submit" value="Envoyer">
+                            </form><!-- .comment-form -->
+
+                        </div><!-- .comment-respond -->
+                    </div><!-- .comments-form -->
+
+                    <div class="content-area">
+                        <div class="post-comments">
+                            <h3 class="comments-title">Commentaires</h3>
+
+                            <ol class="comment-list">
+                                <?php foreach ($comments as $comment) : ?>
+
+                                    <li class="comment">
+                                        <div class="comment-body flex justify-content-between">
+                                            <figure class="comment-author-avatar">
+                                                <img src="/PROJET4/public/images/user-1.jpg" alt="user">
+                                            </figure><!-- .comment-author-avatar -->
+
+                                            <div class="comment-wrap">
+                                                <div class="comment-author flex flex-wrap align-items-center">
+                                                    <span class="fn">
+                                                        <a href="#"><?= $comment->author ?></a>
+                                                    </span><!-- .fn -->
+
+                                                    <span class="comment-meta">
+                                                        <a href="#"><?= $comment->comment_date ?></a>
+                                                    </span><!-- .comment-meta -->
+
+                                                </div><!-- .comment-author -->
+
+                                                <p><?= $comment->comment ?></p>
+                                                <input class=" btn-signal btn-danger" type="submit" data-id="<?= $comment->id ?>" value="signaler">
+
+                                            </div><!-- .comment-wrap -->
+                                        </div><!-- .comment-body -->
+                                    </li><!-- .comment -->
+                                <?php endforeach; ?>
+
+                            </ol><!-- .comment-list -->
+                        </div><!-- .post-comments -->
+
+                    </div><!-- .content-area -->
+                </div><!-- .col -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div><!-- .outer-container -->

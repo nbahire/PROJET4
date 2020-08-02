@@ -3,10 +3,9 @@ window.onload = () => {
     for (let bouton of boutons) {
         bouton.addEventListener("click", activate)
     }
+  
 }
 
 function activate() {
-    let xmlhttp = new XMLHttpRequest;
-    xmlhttp.open('GET', '/PROJET4/public/admin/getComment/' + this.dataset.id)
-    xmlhttp.send()
+    console.log('vive les gros nichons');
 }

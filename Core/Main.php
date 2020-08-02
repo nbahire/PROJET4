@@ -33,7 +33,11 @@ class Main extends Controller
             // On sauvegarde le 1er paramètre dans $controller en mettant sa 1ère lettre en majuscule, en ajoutant le namespace des controleurs et en ajoutant "Controller" à la fin
             $controller = '\\Nbahire\\Controllers\\' . ucfirst(array_shift($params)) . 'Controller';
             // On instancie le contrôleur
-            $controller = new $controller();
+            try {
+                $controller = new $controller();
+            } catch (\Error $error) {
+            }
+
 
             // On sauvegarde le 2ème paramètre dans $action si il existe, sinon index
             $action = isset($params[0]) ? array_shift($params) : 'index';
@@ -41,12 +45,16 @@ class Main extends Controller
 
             if (method_exists($controller, $action)) {
                 // Si il reste des paramètres, on appelle la méthode en envoyant les paramètres sinon on l'appelle "à vide"
-                (isset($params[0])) ? call_user_func_array([$controller, $action], $params) : $controller->$action();
-
+                try {
+                    (isset($params[0])) ? call_user_func_array([$controller, $action], $params) : $controller->$action();
+                } catch (\Error $error) {
+                    http_response_code(404);
+                    echo "La page que vous essayez de visiter n'existe pas !!";
+                }
             } else {
                 // On envoie le code réponse 404
                 http_response_code(404);
-                echo"La page que vous essayez de visiter n'existe pas ";
+                echo "La page que vous essayez de visiter n'existe pas ";
             }
         } else {
             // Ici aucun paramètre n'est défini
