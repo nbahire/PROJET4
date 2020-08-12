@@ -26,10 +26,11 @@ body {
     font-family: 'HelveticaNeueLTPro-Md';
 }
 
-img {
-    vertical-align: baseline;
-}
 
+.posthead img
+{
+   border: solid red 5px;
+overflow: auto;}
 /*--------------------------------------------------------------
 # Links
 --------------------------------------------------------------*/
@@ -613,6 +614,13 @@ color: red;
 .pagination li.active a {
     color: #fff;
     background: #2f2f2f;
+}
+.footer {
+  text-align: center;
+  color: white;
+  padding: 5px 0 5px 0;
+  background-color: #343A40;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 
