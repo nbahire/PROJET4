@@ -18,8 +18,7 @@ class PostsController extends Controller
         $postsModel = new PostsModel;
 
         //On va chercher tous les posts 
-        $posts = $postsModel->findBy(['array_reverse(id)']);
-
+        $posts = $postsModel->findBy(['']);
         //On genere la vue 
         $this->render('posts/index', compact("posts"));
     }
@@ -42,14 +41,14 @@ class PostsController extends Controller
         if (!empty($_POST['author']) && !empty($_POST['comment'])) {
 
             $addComment = $commentsModel->setPost_id($id)
-                ->setAuthor($_POST['author'])
-                ->setComment($_POST['comment']);
+                ->setAuthor(htmlentities($_POST['author']))
+                ->setComment(htmlentities($_POST['comment']));
             $commentsModel->create($addComment);
             //On envoie a la vue 
             header('Location:' . $id . '');
             $this->render('posts/lire', compact('post', "comments", 'addComment'));
+    
         }
-
         $this->render('posts/lire', compact('post', "comments"));
     }
 }

@@ -81,8 +81,8 @@ a:hover, a:active {
 /*
 # Site Branding
 --------------------------------*/
-
 .site-title {
+    margin-top: 50px;
     font-size: 72px;
     font-family: 'BeyondTheMountains';
 }
@@ -118,18 +118,18 @@ a:hover, a:active {
 --------------------------------------------------------------*/
 .single-page {
     padding-top: 165px;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgb(83, 81, 81);
 
 }
 .content-wrap{
-    border: solid 2px black;
     border-radius: 20px;
     padding: 5px;
 }
 .single-page .content-wrap {
-    margin-top: 110px;
+    margin-top: 100px;
     text-align: center;
-    color: #afafaf;
+    color: #423f3f;
 }
 
 .single-page .content-wrap .posted-date {
@@ -140,7 +140,7 @@ a:hover, a:active {
 
 .single-page .content-wrap .entry-title {
     margin-top: 12px;
-    font-size: 30px;
+    font-size: 50px;
     color: #2f2f2f;
 }
 
@@ -191,8 +191,8 @@ a:hover, a:active {
 }
 
 .post-share,
-.comments-count {
-    width: 100%;
+.comments-count a {
+color: red;
 }
 
 .post-share {
@@ -225,16 +225,20 @@ a:hover, a:active {
 .post-share li a:hover {
     color: #2f2f2f;
 }
-
 .content-wrap a.read-more {
     display: block;
-    width: 200px;
-    padding: 20px 0;
+    width: 150px;
+    padding: 15px 0;
+    border-radius: 10px;
     margin-top: 30px;
     font-size: 14px;
     color: #fff;
     line-height: 1;
     background: #2f2f2f;
+}
+.content-wrap a.read-more:hover {
+    background: #2f2f2fa1;
+    text-decoration: none;
 }
 
 .comments-count {
@@ -272,16 +276,15 @@ a:hover, a:active {
 # Page Header
 --------------------------------------------------------------*/
 .page-header {
-    position: relative;
     height: 385px;
-    margin-top: 40px;
+    margin-top: 20px;
     background-size: cover;
 }
 
 .page-header h1 {
     font-size: 72px;
     font-family: 'BeyondTheMountains';
-    color: #fff;
+    color: rgb(63, 61, 61);
 }
 
 /*--------------------------------------------------------------
@@ -347,7 +350,6 @@ a:hover, a:active {
 
 .blog-page-half-img img {
     display: block;
-    width: 100%;
 }
 
 .blog-page .content-wrap .entry-footer {
@@ -358,17 +360,31 @@ a:hover, a:active {
 # Comments
 --------------------------------*/
 .post-comments,
-.comment-form {
-    margin-top: 100px;
+.form-reg {
+    margin-top: 200px;
 }
+.form-reg h3 {
+    text-align: center;
 
+}
+.comment-body{
+    padding: 10px 0 10px 5px;
+    border-bottom : 1px solid rgb(145, 134, 134);
+    border-radius: 5px;
+    background-color: #EFEFEF;
+}
+.btn-signal{
+    border: none;
+    border-radius: 5px;
+}
 .post-comments h3 {
     font-size: 24px;
+
 }
 
 .comment-list {
     padding: 0;
-    margin: 100px 0 0;
+    margin: 20px 0 0 20px;
     list-style: none;
 }
 
@@ -384,11 +400,15 @@ a:hover, a:active {
     width: 64px;
     height: 10px;
     margin-right: 20px;
-    border-radius: 50%;
+    color: red;
+
 }
 
 .comment-author-avatar img {
     width: 100%;
+        border-radius: 50%;
+
+
 }
 
 .comment-wrap {
@@ -409,9 +429,9 @@ a:hover, a:active {
 
 .comment-wrap p {
     margin-top: 14px;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.85rem;
-    color: #afafaf;
+    color: #424141;
 }
 
 .comment-reply-title {
@@ -424,6 +444,7 @@ a:hover, a:active {
 
 .comment-form input[type="text"],
 .comment-form input[type="email"],
+.comment-form input[type="password"],
 .comment-form textarea {
     display: block;
     width: 100%;
@@ -438,11 +459,13 @@ a:hover, a:active {
     outline: none;
 }
 
-.comment-form input[type="submit"] {
+.comment-form input[type="submit"],
+.comment-form button[type="submit"] {
     display: block;
-    width: 200px;
-    padding: 20px 0;
-    margin-top: 70px;
+    width: 150px;
+    padding: 15px 0;
+    margin-top: 20px;
+    border-radius: 10px;
     border: 0;
     font-size: 14px;
     color: #fff;

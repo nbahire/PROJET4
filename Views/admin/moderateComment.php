@@ -11,8 +11,8 @@
         <?php foreach ($moderates as $moderate) : ?>
             <tr>
                 <td><?= $moderate->id ?></td>
-                <td><?= $moderate->author ?></td>
-                <td><?= $moderate->comment ?></td>
+                <td><?= utf8_encode($moderate->author) ?></td>
+                <td><?= utf8_encode($moderate->comment) ?></td>
                 <td></td>
                 <td><a href="/PROJET4/public/admin/deleteComment/<?= $moderate->id ?>" class="btn btnSupp btn-danger">Supprimer</a></td>
             </tr>

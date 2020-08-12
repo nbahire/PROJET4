@@ -39,7 +39,7 @@ class AdminController extends Controller
             $postModel = new PostsModel;
             if (!empty($_POST['titre']) && !empty($_POST['description'])) {
 
-                $addChapiter = $postModel->setTitre($_POST['titre'])
+                $addChapiter = $postModel->setTitre(htmlentities($_POST['titre']))
                     ->setDescription($_POST['description']);
                 $postModel->create($addChapiter);
                 //On envoie a la vue 
