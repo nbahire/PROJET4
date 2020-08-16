@@ -23,7 +23,7 @@
                                         </footer><!-- .entry-footer -->
                                     </div><!-- .content-wrap -->
 
-                                    <a class="btn btn-primary btn-lg js-scroll-trigger" href="admin/addChapiter"><i class="fa fa-arrow-right"></i>Ecrir un nouveau chapitre</a>
+                                    <a class="btn btn-primary btn-lg js-scroll-trigger" href="admin/addChapiter">Ecrir un nouveau chapitre</a>
                                     <a class="btn btn-primary btn-lg js-scroll-trigger" href="admin/moderateComment">Moderer les commentaires</a>
 
                                 </div><!-- .col -->

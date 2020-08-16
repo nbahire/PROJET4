@@ -49,12 +49,12 @@ class Main extends Controller
                     (isset($params[0])) ? call_user_func_array([$controller, $action], $params) : $controller->$action();
                 } catch (\Error $error) {
                     http_response_code(404);
-                    echo "La page que vous essayez de visiter n'existe pas !!";
+                    header('Location: /PROJET4/public/main/error'); 
                 }
             } else {
                 // On envoie le code réponse 404
                 http_response_code(404);
-                echo "La page que vous essayez de visiter n'existe pas ";
+                header('Location: /PROJET4/public/main/error'); 
             }
         } else {
             // Ici aucun paramètre n'est défini

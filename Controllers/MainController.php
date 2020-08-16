@@ -16,4 +16,9 @@ class MainController extends Controller
         //On genere la vue 
         $this->render('main/index', compact("posts"), 'home');
     }
+    public function error()
+    {
+        $this->render('main/error', [], 'default' );
+  
+    }
 }

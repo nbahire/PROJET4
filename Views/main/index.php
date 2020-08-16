@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="" />
+                        <img class="mx-auto rounded-circle" src="images/2.jpg" alt="" />
                         <h4>Jean Forteroche</h4>
                         <p class="text-muted">Ecrivain</p>
                     </div>

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/PROJET4/public/css/font-awesome.min.css">
     <!-- Styles -->
     <link rel="stylesheet" href="/PROJET4/public/css/style.css">
-
+    <link rel="icon" type="image/x-icon" href="images/favicon.png" />
     <script src="https://cdn.tiny.cloud/1/70e6jobl7u7xxhwzi187ucfmlkd9zmy8tr29fh36wmfqzeaw/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     <script>

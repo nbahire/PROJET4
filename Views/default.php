@@ -6,12 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Billet simple pour l'Alaska</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700" rel="stylesheet">
     <!-- FontAwesome CSS -->
     <link rel="stylesheet" href="/PROJET4/public/css/font-awesome.min.css">
     <!-- Styles -->
     <link rel="stylesheet" href="/PROJET4/public/css/style.css">
-
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 
