@@ -11,12 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- FontAwesome CSS -->
     <link rel="stylesheet" href="/PROJET4/public/css/font-awesome.min.css">
-
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="/PROJET4/public/css/swiper.min.css">
-
     <!-- Styles -->
-    <link rel="stylesheet" href="/PROJET4/public/style.css">
+    <link rel="stylesheet" href="/PROJET4/public/css/style.css">
 
     <script src="https://cdn.tiny.cloud/1/70e6jobl7u7xxhwzi187ucfmlkd9zmy8tr29fh36wmfqzeaw/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
@@ -41,9 +37,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/PROJET4/public/main">Accueil du site</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/PROJET4/public/admin">Accueil d'l'admin</a>
-                </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="/PROJET4/public/posts">Liste des chapitres</a>
@@ -57,14 +50,7 @@
                         </li>
                     <?php endif; ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="/PROJET4/public/users/profil">Profil</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/PROJET4/public/users/logout">Déconnexion</a>
-                    </li>
-                <?php else : ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/PROJET4/public/users/login">Connexion</a>
                     </li>
                 <?php endif; ?>
             </ul>
@@ -91,9 +77,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="/PROJET4/public/js/script.js"></script>
-    <script type='text/javascript' src='/PROJET4/public/js/jquery.js'></script>
-    <script type='text/javascript' src='/PROJET4/public/js/swiper.min.js'></script>
-    <script type='text/javascript' src='/PROJET4/public/js/custom.js'></script>
 </body>
 
 </html>

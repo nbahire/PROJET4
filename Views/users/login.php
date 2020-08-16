@@ -1,5 +1,5 @@
 <form class="comment-form form-reg" method="post" action="<?php $user ?>">
-    <h3>Connexion</h3>
+    <h2>Connexion administrateur</h2>
     <div class="form-group">
         <label for="exampleInputEmail1">Email</label>
         <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrer votre e-mail" required>

@@ -36,6 +36,11 @@ class PostsController extends Controller
         //On va chercher 1 billet de blog
 
         $post = $postsModel->find($id);
+        if (!$post) {
+            http_response_code(404);
+            header('Location: erreur');
+            exit;
+        }
         //On associe le commentaire a son billet de blog correspodant
         $comments = $commentsModel->findBy(['post_id' => $id]);
         if (!empty($_POST['author']) && !empty($_POST['comment'])) {

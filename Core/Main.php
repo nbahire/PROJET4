@@ -26,7 +26,7 @@ class Main extends Controller
             exit;
         }
         // On sépare les paramètres et on les met dans le tableau $params
-        $params = explode('/', $_GET['p']);
+        $params = explode('/', $_GET[trim('p')]);
 
         // Si au moins 1 paramètre existe
         if ($params[0] != "") {

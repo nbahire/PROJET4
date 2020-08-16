@@ -1,8 +1,3 @@
-    <?php if (!$post) {
-        header('Location: erreur');
-        exit;
-    }
-    ?>
     <div class="outer-container">
 
 
@@ -21,6 +16,10 @@
 
                         <div class="entry-content">
                             <p><?= utf8_encode(str_replace(chr(146), "'", nl2br($post->description))) ?></p>
+                            <?php if (isset($_SESSION['user']['roles']) && in_array('ROLE_ADMIN', $_SESSION['user']['roles'])) : ?>
+                                <a class="read-more order-2" href="/PROJET4/public/admin/modifyChapiter/<?= $post->id ?>">modifier</a>
+                            <?php endif; ?>
+
                         </div><!-- .entry-content -->
 
 

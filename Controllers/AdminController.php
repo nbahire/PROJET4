@@ -11,7 +11,13 @@ class AdminController extends Controller
     {
         //On verifie si on est admin
         if ($this->isAdmin()) {
-            $this->render('admin/index', [], 'admin');
+            //On instancie le modele correspondant à la table 'posts'
+            $postsModel = new PostsModel;
+
+            //On va chercher tous les posts 
+            $posts = $postsModel->findBy(['']);
+            //On genere la vue 
+            $this->render('admin/index', compact("posts"), 'admin');
         }
     }
     /**
@@ -49,6 +55,27 @@ class AdminController extends Controller
             $this->render('admin/addChapiter', [], 'admin');
         }
     }
+    public function modifyChapiter($id)
+    {
+        if ($this->isAdmin()) {
+
+            //On instancie le modéle
+            $postsModel = new PostsModel;
+            //On va chercher 1 billet de blog
+            $post = $postsModel->find($id);
+            if (!empty($_POST['titre']) && !empty($_POST['description'])) {
+                // On hydrate
+                $postModif = $postsModel->setId($post->id)
+                    ->setTitre(strip_tags($_POST['titre']))
+                    ->setDescription(strip_tags($_POST['description']));
+                // On enregistre
+                $postModif->update();
+                $this->render('admin/modifyChapiter', compact('post', 'postModif'), 'admin');
+                header('Location: /PROJET4/public/posts'); 
+            }
+            $this->render('admin/modifyChapiter', compact('post'), 'admin');
+        }
+    }
     /**
      * Affiche les commentaires signalés
      *
@@ -61,8 +88,8 @@ class AdminController extends Controller
             $commentsModel = new CommentsModel;
 
             //On va chercher tous les posts 
-            $moderates = $commentsModel->findBy(['moderates'=> 1]);
-            $this->render('admin/moderateComment', compact('moderates'),'admin');
+            $moderates = $commentsModel->findBy(['moderates' => 1]);
+            $this->render('admin/moderateComment', compact('moderates'), 'admin');
         }
     }
     /**
@@ -73,10 +100,10 @@ class AdminController extends Controller
      */
     public function deleteComment($id)
     {
-        if($this->IsAdmin()){
+        if ($this->IsAdmin()) {
             $comment = new CommentsModel;
             $comment->delete($id);
-            header('location: '.$_SERVER['HTTP_REFERER']);
+            header('location: ' . $_SERVER['HTTP_REFERER']);
         }
     }
     /**
@@ -90,9 +117,9 @@ class AdminController extends Controller
         $commentsModel = new CommentsModel;
         $commentaArray = $commentsModel->find($id);
         if ($commentaArray) {
-           $comment = $commentsModel->hydrate($commentaArray);
-           $comment->setModerates($comment->getModerates()? :1);
-           $comment->update();
+            $comment = $commentsModel->hydrate($commentaArray);
+            $comment->setModerates($comment->getModerates() ?: 1);
+            $comment->update();
         }
     }
 }

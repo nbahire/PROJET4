@@ -1,40 +1,3 @@
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
-        <a class="navbar-brand" href="/PROJET4/public/main">Billet simple pour l'alaska</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/PROJET4/public/posts">Liste des chapitres</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <?php if (isset($_SESSION['user']) && !empty($_SESSION['user']['id'])) : ?>
-                    <?php if (isset($_SESSION['user']['roles']) && in_array('ROLE_ADMIN', $_SESSION['user']['roles'])) : ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/PROJET4/public/admin">Admin</a>
-                        </li>
-                    <?php endif; ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/PROJET4/public/users/profil">Profil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/PROJET4/public/users/logout">Déconnexion</a>
-                    </li>
-                <?php else : ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/PROJET4/public/users/login">Se connecter</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/PROJET4/public/users/register">s'inscrire</a>
-                    </li>
-                <?php endif; ?>
-            </ul>
-        </div>
-    </nav>
     <!-- Masthead-->
     <header class="masthead">
         <div class="container">
@@ -79,7 +42,7 @@
     <section class="page-section" id="services">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">Dérnier chapitre: </h2>
+                <h2 class="section-heading text-uppercase">Dérnier chapitre publié: </h2>
             </div>
             <div class="row text-center">
                 <div class="col-lg-12">

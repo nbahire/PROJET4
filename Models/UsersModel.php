@@ -5,6 +5,7 @@ namespace Nbahire\Models;
 class UsersModel extends Model
 {
     protected $id;
+    protected $name;
     protected $email;
     protected $password;
     protected $roles;
@@ -113,6 +114,26 @@ class UsersModel extends Model
     public function setRoles($roles)
     {
         $this->roles = json_decode($roles);
+
+        return $this;
+    }
+
+    /**
+     * Get the value of name
+     */ 
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set the value of name
+     *
+     * @return  self
+     */ 
+    public function setName($name)
+    {
+        $this->name = $name;
 
         return $this;
     }
