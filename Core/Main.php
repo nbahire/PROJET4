@@ -22,7 +22,7 @@ class Main extends Controller
             http_response_code(301);
 
             // On redirige vers l'URL dans /
-            header('Location: ' . $uri);
+            header('Location: ' . $uri.'?');
             exit;
         }
         // On sépare les paramètres et on les met dans le tableau $params
@@ -30,7 +30,8 @@ class Main extends Controller
 
         // Si au moins 1 paramètre existe
         if ($params[0] != "") {
-            // On sauvegarde le 1er paramètre dans $controller en mettant sa 1ère lettre en majuscule, en ajoutant le namespace des controleurs et en ajoutant "Controller" à la fin
+            // On sauvegarde le 1er paramètre dans $controller en mettant sa 1ère lettre en majuscule, 
+            // en ajoutant le namespace des controleurs et en ajoutant "Controller" à la fin
             $controller = '\\Nbahire\\Controllers\\' . ucfirst(array_shift($params)) . 'Controller';
             // On instancie le contrôleur
             try {

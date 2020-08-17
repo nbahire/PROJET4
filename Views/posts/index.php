@@ -17,7 +17,7 @@
                     <div class="content-wrap">
                         <header class="entry-header">
                             <div class="posted-date">
-                                <?= $post->created_at ?>
+                                <?= substr($post->created_at, 0, -8) ?>
                             </div><!-- .posted-date -->
 
                             <h2 class="entry-title"><?= utf8_encode($post->titre) ?></h2>
