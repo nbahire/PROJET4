@@ -5,6 +5,6 @@
 	                <h1>Oops!</h1>
 	                <h2>404 - Page introuvable</h2>
 	            </div>
-	            <a href="/PROJET4/public/main">Aller a la page d'accueil</a>
+	            <a href="/main">Aller a la page d'accueil</a>
 	        </div>
 	    </div>

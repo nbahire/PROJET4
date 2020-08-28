@@ -1,34 +1,35 @@
                         <div class="container single-page">
-                            <h2>Bienvenue dans l'administration</h2>
+                            <div class="entry-div-page flex flex-column flex-lg-row justify-content-around align-content-start align-lg-items-center">
+                                <h2 class="section-heading text-uppercase">Bienvenue dans l'administration</h2>
+                            </div>
+                            <div class="entry-div flex flex-column flex-lg-row justify-content-around align-content-start align-lg-items-center">
+                                <a class="btn btn-primary btn-outline-success btn-lg " href="admin/addChapiter">Ecrire un nouveau chapitre</a>
+                                <a class="btn btn-secondary btn-outline-info btn-lg " href="admin/moderateComment">Moderer les commentaires</a>
+                            </div>
+
                             <div class="row">
                                 <div class=" col-12 col-lg-12">
-                                    <div class="content-wrap">
+                                    <div class="last-chap content-wrap">
+                                        <h2 class="section-heading text-uppercase">Dérnier chapitre publié </h2>
+
                                         <header class="entry-header">
-                                            <div class="posted-date">
-                                                <?= utf8_encode(end($posts)->created_at) ?>
-                                            </div><!-- .posted-date -->
-
                                             <h2 class="entry-title"><?= utf8_encode(end($posts)->titre) ?></h2>
-
                                         </header><!-- .entry-header -->
 
 
                                         <div class="entry-content">
-                                            <p><?= substr(utf8_encode(str_replace(chr(146), "'", end($posts)->description)), 0, 400) . '...' ?> </p>
+                                            <p><?= end($posts)->description ?> </p>
                                         </div><!-- .entry-content -->
 
                                         <footer class="entry-footer flex flex-column flex-lg-row justify-content-end align-content-start align-lg-items-center">
-
-                                            <a class="read-more order-2" href="posts/lire/<?= end($posts)->id ?>">Modifier</a>
+                                            <a class="read-more order-2" href="/admin/modifyChapiter/<?= end($posts)->id ?>">Modifier</a>
                                         </footer><!-- .entry-footer -->
                                     </div><!-- .content-wrap -->
-
-                                    <a class="btn btn-primary btn-lg js-scroll-trigger" href="admin/addChapiter">Ecrir un nouveau chapitre</a>
-                                    <a class="btn btn-primary btn-lg js-scroll-trigger" href="admin/moderateComment">Moderer les commentaires</a>
 
                                 </div><!-- .col -->
 
                             </div><!-- .row -->
+
                         </div><!-- .container -->
 
                         <div class=" col-12 col-lg-12">

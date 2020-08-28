@@ -1,15 +1,22 @@
 <h1>Modifier le chapitre</h1>
 <form class="comment-form" method="post" action="<?php $postModif ?>">
     <div class=" form-group">
-        <label for="exampleFormControlTextarea1">Titre du chapitre</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" name="titre" rows="1" required><?= utf8_encode($post->titre) ?></textarea>
+        <label for="titre">Titre du chapitre</label>
+        <input type="text" name="titre" value="<?= $post->titre ?>" class="text-dark" required />
     </div>
-    <label for="exampleFormControlTextarea1">Contenu du chapitre</label>
+    <div class=" form-group">
+        <label for="description">Description du chapitre</label>
+        <textarea type="text" name="description" class="text-dark" required /><?= $post->description ?></textarea>
+    </div>
+    <div class=" form-group">
+        <label for="contenu">Contenu du chapitre</label>
+        <textarea id="mytextarea" name="contenu" required><?= $post->contenu ?></textarea>
+    </div>
 
-    <textarea id="mytextarea" name="description" required><?= utf8_encode(str_replace(chr(146), "'", nl2br($post->description))) ?></textarea>
-    <div class="text-left flex flex-column flex-lg-row justify-content-end  align-content-end align-lg-items-center">
-        <input type="submit" value="Modifier" class="btn btn-primary" />
-        <input type="submit" value="Suprimer" class="btn btn-secondary" />
-   </div>
+    <div class=" form-group">
+        <div class="text-left flex flex-column flex-lg-row justify-content-end  align-content-end align-lg-items-center">
+            <input type="submit" value="Modifier" class="btn btn-primary" />
+        </div>
+    </div>
 
 </form>

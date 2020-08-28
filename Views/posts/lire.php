@@ -7,7 +7,7 @@
                     <div class="content-wrap">
                         <header class="entry-header">
                             <div class="posted-date">
-                                <?= $post->created_at ?>
+                                <?= substr($post->created_at, 0, -8) ?>
                             </div><!-- .posted-date -->
 
                             <h2 class="entry-title"><?= utf8_encode($post->titre) ?></h2>
@@ -15,9 +15,13 @@
                         </header><!-- .entry-header -->
 
                         <div class="entry-content">
-                            <p><?= utf8_encode(str_replace(chr(146), "'", nl2br($post->description))) ?></p>
+                            <p><?= nl2br($post->contenu) ?></p>
                             <?php if (isset($_SESSION['user']['roles']) && in_array('ROLE_ADMIN', $_SESSION['user']['roles'])) : ?>
-                                <a class="read-more order-2" href="/PROJET4/public/admin/modifyChapiter/<?= $post->id ?>">modifier</a>
+                                <footer class="entry-footer flex flex-column flex-lg-row justify-content-around align-content-start align-lg-items-center">
+                                    <a class="read-more order-2" href="/admin/modifyChapiter/<?= $post->id ?>">Modifier</a>
+                                    <a class="read-more del-btn order-2" href="/admin/deletePost/<?= $post->id ?>">Supprimer</a>
+                                </footer><!-- .entry-footer -->
+
                             <?php endif; ?>
 
                         </div><!-- .entry-content -->
@@ -25,9 +29,8 @@
 
 
                         <footer class="entry-footer flex flex-column flex-lg-row justify-content-end align-content-start align-lg-items-center">
-
                             <div class="comments-count order-1 order-lg-3">
-                                <a href="#"><?= sizeof($comments) ?> Commentaires</a>
+                                <a href="#end-page" class="comment-size"><?= sizeof($comments) ?> Commentaires</a>
                             </div><!-- .comments-count -->
                         </footer><!-- .entry-footer -->
                     </div><!-- .content-wrap -->
@@ -37,13 +40,13 @@
                             <form class="comment-form" method="post" action="<?php $addComment ?>">
                                 <input type="text" placeholder="Nom" name="author" required>
                                 <textarea rows="8" cols="6" placeholder="Commentaire" name="comment" required></textarea>
-                                <input class="btn-sub pull-right" type="submit" value="Envoyer">
+                                <input  class="btn-sub pull-right" type="submit" value="Envoyer">
                             </form><!-- .comment-form -->
 
                         </div><!-- .comment-respond -->
                     </div><!-- .comments-form -->
 
-                    <div class="content-area">
+                    <div id="end-page" class="content-area">
                         <div class="post-comments">
                             <h3 class="comments-title">Commentaires</h3>
 
@@ -53,21 +56,21 @@
                                     <li class="comment">
                                         <div class="comment-body flex justify-content-between">
                                             <figure class="comment-author-avatar">
-                                                <img src="/PROJET4/public/images/user-1.jpg" alt="user">
+                                                <img src="/images/user-1.png" alt="user">
                                             </figure><!-- .comment-author-avatar -->
 
                                             <div class="comment-wrap">
                                                 <div class="comment-author flex flex-wrap align-items-center">
                                                     <span class="fn">
-                                                        <a href="#"><?= utf8_encode($comment->author) ?></a>
+                                                        <a><?= utf8_encode($comment->author) ?></a>
                                                     </span><!-- .fn -->
 
                                                     <span class="comment-meta">
-                                                        <a href="#"><?= $comment->comment_date ?></a>
+                                                        <a><?= $comment->comment_date ?></a>
                                                     </span><!-- .comment-meta -->
                                                 </div><!-- .comment-author -->
 
-                                                <p><?= utf8_encode($comment->comment) ?></p>
+                                                <p class='comment-wrap-p'><?= utf8_encode($comment->comment) ?></p>
                                                 <input class=" btn-signal btn-danger" type="submit" data-id="<?= $comment->id ?>" value="signaler">
 
                                             </div><!-- .comment-wrap -->

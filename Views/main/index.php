@@ -5,11 +5,12 @@
             <div class="masthead-subheading">par Jean Forteroche</div>
             <p>Découvrez sur ce site la magnifique histoire d'un jeune homme à la découverte des plaines enneigé de
                 l'Alaska. Aventures, humanisme et grandes emotions sont au rendez-vous !!</p>
-            <a class="btn btn-primary btn-lg text-uppercase js-scroll-trigger" href="/PROJET4/public/posts">Lire les chapitres</a>
+            <a class="btn btn-primary btn-lg text-uppercase js-scroll-trigger" href="/posts">Lire les chapitres</a>
         </div>
     </header>
     <!-- Team-->
     <section class="page-section bg-light" id="team">
+
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">A propos de l'auteur</h2>
@@ -32,7 +33,7 @@
                         l'un des auteurs français les plus lus à l'étranger.
                         Jonglant avec les genres, Jean Forteroche est un auteur qui se distingue pour son sens du suspense et son style très
                         cinématographique. Si ses romans se rapprochent du thriller, ils font également la part belle à l'amour et
-                        à l'aventure</p>
+                        à l'aventure.</p>
                 </div>
             </div>
         </div>
@@ -42,7 +43,7 @@
     <section class="page-section" id="services">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">Dérnier chapitre publié: </h2>
+                <h2>Dérnier chapitre publié </h2>
             </div>
             <div class="row text-center">
                 <div class="col-lg-12">

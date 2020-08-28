@@ -1,20 +1,25 @@
 <table class="table table-striped">
-    <h3>Liste des commentaires signalés</h3>
+    <div class="entry-div flex flex-column flex-lg-row justify-content-around align-content-start align-lg-items-center">
+        <h2 class="section-heading text-uppercase">Liste des commentaires signalés</h2>
+    </div>
     <thead>
-        <th>ID</th>
+        <th>Chapitre</th>
         <th>Auteur</th>
         <th>Commentaire</th>
-        <th>signalements</th>
         <th>Actions</th>
     </thead>
     <tbody>
         <?php foreach ($moderates as $moderate) : ?>
             <tr>
-                <td><?= $moderate->id ?></td>
+                <td><?= $moderate->post_id ?></td>
                 <td><?= utf8_encode($moderate->author) ?></td>
                 <td><?= utf8_encode($moderate->comment) ?></td>
-                <td></td>
-                <td><a href="/PROJET4/public/admin/deleteComment/<?= $moderate->id ?>" class="btn btnSupp btn-danger">Supprimer</a></td>
+                <td>
+                    <a href="/admin/deleteComment/<?= $moderate->id ?>" class="btn btnSupp btn-danger">Supprimer</a>
+                    <a type="button" type="submit" href="/admin/restaure/<?= $moderate->id ?>" class="close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </a>
+                </td>
             </tr>
         <?php endforeach; ?>
     </tbody>
