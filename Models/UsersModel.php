@@ -120,7 +120,7 @@ class UsersModel extends Model
 
     /**
      * Get the value of name
-     */ 
+     */
     public function getName()
     {
         return $this->name;
@@ -130,7 +130,7 @@ class UsersModel extends Model
      * Set the value of name
      *
      * @return  self
-     */ 
+     */
     public function setName($name)
     {
         $this->name = $name;

@@ -119,7 +119,7 @@ class CommentsModel extends Model
 
     /**
      * Get the value of moderate
-     */ 
+     */
     public function getModerates()
     {
         return $this->moderates;
@@ -129,7 +129,7 @@ class CommentsModel extends Model
      * Set the value of moderate
      *
      * @return  self
-     */ 
+     */
     public function setModerates($moderates)
     {
         $this->moderates = $moderates;

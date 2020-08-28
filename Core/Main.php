@@ -12,7 +12,7 @@ class Main extends Controller
         session_start();
         // On récupère l'adresse
         $uri = $_SERVER['REQUEST_URI'];
-        $uri = substr($uri,1);
+        $uri = substr($uri, 1);
         // On vérifie si elle n'est pas vide et si elle se termine par un /
         if (!empty($uri) && $uri != '/' && $uri[-1] === '/') {
             // Dans ce cas on enlève le /
@@ -22,7 +22,7 @@ class Main extends Controller
             http_response_code(301);
 
             // On redirige vers l'URL dans /
-            header('Location: ' . $uri.'?');
+            header('Location: ' . $uri . '?');
             exit;
         }
         // On sépare les paramètres et on les met dans le tableau $params
@@ -49,12 +49,12 @@ class Main extends Controller
                     (isset($params[0])) ? call_user_func_array([$controller, $action], $params) : $controller->$action();
                 } catch (\Error $error) {
                     http_response_code(404);
-                    header('Location:/PROJET4/public/main/error'); 
+                    header('Location: /main/error');
                 }
             } else {
                 // On envoie le code réponse 404
                 http_response_code(404);
-                header('Location:/PROJET4/public/main/error'); 
+                header('Location: /main/error');
             }
         } else {
             // Ici aucun paramètre n'est défini

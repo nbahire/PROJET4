@@ -7,6 +7,7 @@ class PostsModel extends Model
     protected $id;
     protected $titre;
     protected $description;
+    protected $contenu;
     protected $created_at;
 
 
@@ -93,6 +94,26 @@ class PostsModel extends Model
     public function setCreated_at($created_at)
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of contenu
+     */
+    public function getContenu()
+    {
+        return $this->contenu;
+    }
+
+    /**
+     * Set the value of contenu
+     *
+     * @return  self
+     */
+    public function setContenu($contenu)
+    {
+        $this->contenu = $contenu;
 
         return $this;
     }
