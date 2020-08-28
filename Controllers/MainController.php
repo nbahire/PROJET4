@@ -18,7 +18,6 @@ class MainController extends Controller
     }
     public function error()
     {
-        $this->render('main/error', [], 'default' );
-  
+        $this->render('main/error', [], 'default');
     }
 }

@@ -52,7 +52,6 @@ class PostsController extends Controller
             //On envoie a la vue 
             header('Location:' . $id . '');
             $this->render('posts/lire', compact('post', "comments", 'addComment'));
-    
         }
         $this->render('posts/lire', compact('post', "comments"));
     }
