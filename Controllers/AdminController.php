@@ -34,8 +34,8 @@ class AdminController extends Controller
         } else {
 
             // On est pas admin
-            $_SESSION['erreur'] = "vous n'avez pas accès a cette zone";
-            header('location: /PROJET4/public/posts');
+            $_SESSION['erreur'] = "Accès interdit !!";
+            header('location: posts');
             exit;
         }
     }
@@ -46,11 +46,12 @@ class AdminController extends Controller
             if (!empty($_POST['titre']) && !empty($_POST['description'])) {
 
                 $addChapiter = $postModel->setTitre(htmlentities($_POST['titre']))
-                    ->setDescription($_POST['description']);
+                    ->setDescription(htmlentities($_POST['description']))
+                    ->setContenu($_POST['contenu']);
                 $postModel->create($addChapiter);
                 //On envoie a la vue 
+                header('location: /admin');
                 $this->render('admin/addChapiter', compact('addChapiter'));
-                header('location: /PROJET4/public/admin');
             }
             $this->render('admin/addChapiter', [], 'admin');
         }
@@ -63,15 +64,16 @@ class AdminController extends Controller
             $postsModel = new PostsModel;
             //On va chercher 1 billet de blog
             $post = $postsModel->find($id);
-            if (!empty($_POST['titre']) && !empty($_POST['description'])) {
+            if (!empty($_POST['titre']) && !empty($_POST['contenu'])) {
                 // On hydrate
                 $postModif = $postsModel->setId($post->id)
-                    ->setTitre(strip_tags($_POST['titre']))
-                    ->setDescription(strip_tags($_POST['description']));
+                    ->setTitre(htmlentities($_POST['titre']))
+                    ->setDescription($_POST['description'])
+                    ->setContenu($_POST['contenu']);
                 // On enregistre
                 $postModif->update();
+                header('Location: /posts/lire/' . $post->id);
                 $this->render('admin/modifyChapiter', compact('post', 'postModif'), 'admin');
-                header('Location: /PROJET4/public/posts'); 
             }
             $this->render('admin/modifyChapiter', compact('post'), 'admin');
         }
@@ -107,6 +109,20 @@ class AdminController extends Controller
         }
     }
     /**
+     * supprimer un post si on est admin
+     *
+     * @param int $id
+     * @return void
+     */
+    public function deletePost($id)
+    {
+        if ($this->IsAdmin()) {
+            $deleteP = new PostsModel;
+            $deleteP->delete($id);
+            header('location: /posts');
+        }
+    }
+    /**
      * active le signalement du commentaire en mettant moderate a un
      *
      * @param int $id
@@ -122,5 +138,19 @@ class AdminController extends Controller
             $comment->update();
         }
     }
-    
+    public function restaure($id)
+    {
+        $commentsModel = new CommentsModel;
+        $commentaArray = $commentsModel->find($id);
+        if ($commentaArray) {
+            $comment = $commentsModel->hydrate($commentaArray);
+
+            if ($comment->getModerates()) {
+                $comment->setModerates(0);
+                header('location: /admin/moderateComment');
+            }
+
+            $comment->update();
+        }
+    }
 }
