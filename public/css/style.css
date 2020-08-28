@@ -19,12 +19,10 @@ body {
 html{
     position: relative;
     min-height: 100%;
+    scroll-behavior: smooth;
+
 }
 
-.posthead img
-{
-   border: solid red 5px;
-overflow: auto;}
 /*--------------------------------------------------------------
 # Links
 --------------------------------------------------------------*/
@@ -77,9 +75,8 @@ a:hover, a:active {
 # Site Branding
 --------------------------------*/
 .site-title {
-    margin-top: 50px;
+    margin-top: 100px;
     font-size: 72px;
-    font-family: 'BeyondTheMountains';
 }
 
 .site-title a {
@@ -96,10 +93,16 @@ a:hover, a:active {
     text-transform: uppercase;
     text-align: right;
 }
-
+.entry-div{
+    margin: 50px 0px 50px 0px;
+}
+.entry-div a {
+color: #EFEFEF;
+}
 @media screen and (min-width: 576px){
     .site-title {
         font-size: 112px;
+
     }
 
     .site-description {
@@ -116,7 +119,8 @@ a:hover, a:active {
     flex: 1;
     padding-bottom: 50px;
     border-bottom: 1px solid rgb(83, 81, 81);
-    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
 
 }
@@ -142,23 +146,7 @@ a:hover, a:active {
     color: #2f2f2f;
 }
 
-.single-page .content-wrap .tags-links {
-    margin-top: 35px;
-}
 
-.single-page .content-wrap .tags-links a {
-    margin-right: 15px;
-    font-size: 16px;
-    color: #afafaf;
-}
-
-.single-page .content-wrap .featured-image {
-    margin-top: 42px;
-}
-
-.single-page .content-wrap .featured-image img {
-    max-width: 100%;
-}
 
 .single-page .content-wrap .entry-content {
     margin-top: 36px;
@@ -170,20 +158,6 @@ a:hover, a:active {
     text-align: left;
 }
 
-.single-page .blockquote-text {
-    padding-left: 114px;
-    margin-top: 84px;
-    font-size: 18px;
-    line-height: 2.2rem;
-    color: #2f2f2f;
-    text-align: left;
-    background: url("images/cocktaile.png") no-repeat left center;
-}
-
-.single-page .blockquote-text p::first-letter {
-    font-size: 36px;
-}
-
 .single-page .content-wrap .entry-footer {
     margin-top: 50px;
 }
@@ -192,37 +166,15 @@ a:hover, a:active {
 .comments-count a {
 color: red;
 }
+.post-comments,
+.form-reg {
+    margin-top: 20%;
+}
+.form-reg h2 {
+    text-align: center;
 
-.post-share {
-    padding: 0;
-    margin: 30px 0 0;
-    list-style: none;
-    color: #afafaf;
 }
 
-.post-share label {
-    margin: 0 12px 0 0;
-    font-size: 18px;
-}
-
-.post-share li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 16px;
-    height: 16px;
-    margin: 0 12px;
-    font-size: 15px;
-}
-
-.post-share li a {
-    color: #afafaf;
-    transition: all 0.35s;
-}
-
-.post-share li a:hover {
-    color: #2f2f2f;
-}
 .content-wrap a.read-more {
     display: block;
     width: 150px;
@@ -253,10 +205,6 @@ color: red;
         padding-top: 0;
     }
 
-    .post-share {
-        margin-top: 0;
-    }
-
     .content-wrap a.read-more {
         margin-top: 0;
     }
@@ -285,86 +233,11 @@ color: red;
     color: rgb(63, 61, 61);
 }
 
-/*--------------------------------------------------------------
-# About Page
---------------------------------------------------------------*/
-.about-second-image {
-    margin-top: 100px;
-}
 
-.about-second-image img {
-    max-width: 100%;
-}
-
-.about-page .post-share,
-.about-page .comments-count {
-    margin-top: 60px;
-    width: 50%;
-}
-
-.awards-content {
-    margin-bottom: 50px;
-    text-align: center;
-}
-
-.awards-content h2 {
-    margin: 0;
-    font-size: 42px;
-}
-
-.awards-content h4 {
-    margin-top: 8px;
-    font-size: 20px;
-}
-
-.awards-content p {
-    margin-top: 12px;
-    font-size: 18px;
-    color: #afafaf;
-}
-
-@media screen and (min-width: 992px){
-    .awards-content {
-        margin-bottom: 0;
-    }
-
-    .about-page .post-share,
-    .about-page .comments-count {
-        margin-top: 100px;
-    }
-}
-
-/*--------------------------------------------------------------
-# Blog Page
---------------------------------------------------------------*/
-.about-page .content-wrap p,
-.blog-page .content-wrap p {
-    margin-bottom: 34px;
-}
-
-.blog-page-half-img {
-    margin: 52px 0 0;
-}
-
-.blog-page-half-img img {
-    display: block;
-}
-
-.blog-page .content-wrap .entry-footer {
-    margin-top: 75px;
-}
 
 /*
 # Comments
 --------------------------------*/
-.post-comments,
-.form-reg {
-    margin-top: 200px;
-}
-.form-reg h2 {
-    text-align: center;
-
-}
 .comment-body{
     padding: 10px 0 10px 5px;
     border-bottom : 1px solid rgb(145, 134, 134);
@@ -404,7 +277,7 @@ color: red;
 
 .comment-author-avatar img {
     width: 100%;
-        border-radius: 50%;
+    border-radius: 50%;
 
 
 }
@@ -470,7 +343,6 @@ color: red;
     line-height: 1;
     background: #2f2f2f;
 }
-
 @media screen and (min-width: 992px){
     .comment-author-avatar {
         width: 100px;
@@ -482,136 +354,6 @@ color: red;
     }
 }
 
-/*--------------------------------------------------------------
-# Contact Page
---------------------------------------------------------------*/
-.contact-page .content-wrap .entry-header {
-    text-align: left;
-}
-
-.contact-page .content-wrap .entry-content {
-    margin-top: 90px;
-}
-
-.contact-page-social ul {
-    padding: 0;
-    margin: 60px 0 0;
-    list-style: none;
-}
-
-.contact-page-social li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 32px;
-    height: 32px;
-    margin-right: 15px;
-    font-size: 18px;
-}
-
-.contact-page-social li a {
-    color: #bec4c9;
-    transition: all .35s;
-}
-
-.contact-page-social li a:hover {
-    color: #2f2f2f;
-}
-
-.contact-form {
-    margin-top: 90px;
-}
-
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-    display: block;
-    width: 100%;
-    padding: 20px 32px;
-    margin-bottom: 8px;
-    border: 0;
-    font-size: 12px;
-    font-style: italic;
-    line-height: 1;
-    color: #aeaeae;
-    background: #efefef;
-    outline: none;
-}
-
-.contact-form input[type="submit"] {
-    display: block;
-    width: 200px;
-    padding: 20px 0;
-    margin-top: 60px;
-    border: 0;
-    font-size: 14px;
-    color: #fff;
-    line-height: 1;
-    background: #2f2f2f;
-}
-
-@media screen and (min-width: 768px){
-    .contact-page-social li {
-        margin-right: 65px;
-        font-size: 24px;
-    }
-}
-
-
-/*--------------------------------------------------------------
-# About Me
---------------------------------------------------------------*/
-.about-me {
-    text-align: center;
-}
-
-.about-me h2 {
-    font-size: 30px;
-}
-
-.about-me p {
-    margin-top: 38px;
-    margin-bottom: 0;
-    font-size: 14px;
-    line-height: 1.85rem;
-    color: #afafaf;
-}
-
-
-/*--------------------------------------------------------------
-# Pagination
---------------------------------------------------------------*/
-.pagination {
-    margin-top: 100px;
-}
-
-.pagination ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.pagination li {
-    margin-right: 10px;
-}
-
-.pagination li a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    font-size: 11px;
-    color: #2f2f2f;
-    background: #f0f0f0;
-    text-decoration: none;
-}
-
-.pagination li a:hover,
-.pagination li.active a {
-    color: #fff;
-    background: #2f2f2f;
-}
 .footer {
     position: absolute;
     bottom: 0px;
@@ -632,8 +374,8 @@ color: red;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
 }
 
 .notfound {
@@ -694,6 +436,15 @@ color: red;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
 }
+.table-striped {
+    margin: 10px 0px 50px 0px;
+}
+.entry-div-page{
+    margin-top: 100px;
+}
+.last-chap{
+    margin-top: 100px;
+}
 
 .notfound a:hover {
   color: #ff6300;
@@ -721,6 +472,16 @@ color: red;
     padding: 7px 15px;
     font-size: 14px;
   }
+.site-title {
+    font-size: 60px;    
+    margin-top: 100px;    
+    }
+.single-page {
+    padding-top: 50px;
+    }
+.single-page .content-wrap .entry-title{
+    font-size: 40px;    
+}
 }
 
 
